@@ -1,0 +1,31 @@
+<div class="page-header">
+<h2>Listing Requirements</h2>
+</div>
+<% @statuses.each do |status|%>
+<div class="status">
+    <b><%= status.name %></b>
+    <p>
+        <%= status.comments %></br>
+        Amount required:  <%= status.required_amount%>|
+        Amount raised yet: <%= status.amount_raised %>|
+        Date by which amount is needed: <%= status.by_date %>|
+        Target achieved: <%= status.met %>
+
+    </p>
+    <div class="meta">
+        <%=  link_to "posted " + time_ago_in_words(status.created_at) + " ago", status %>
+        <span class="admin">
+            |<%= link_to "Edit", edit_status_path(status) %> |
+            <%= link_to "Delete", status, method: :delete, data: {confirm: "Are you sure you want to delete this requirement?"} %>
+    </div>
+</div>
+<% end %>
+
+
+
+
+<br />
+
+<span class="admin">
+<%= link_to 'Add New Requirement', new_status_path, class: "btn btn-primary" %>
+</span>
