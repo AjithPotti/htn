@@ -1,27 +1,26 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: {class:"form-horizontal well"}) do |f| %>
   <%= devise_error_messages! %>
+<fieldset>
+  <legend>Sign up</legend>
+  <%= f.input :first_name %>
 
-  <div><%= f.label :first_name %><br />
-  <%= f.text_field :first_name %></div>
+  <%= f.input  :last_name %>
 
-  <div><%= f.label :last_name %><br />
-  <%= f.text_field :last_name %></div>
+  <%= f.input :profile_name %>
 
-  <div><%= f.label :profile_name %><br />
-  <%= f.text_field :profile_name %></div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <%= f.input  :email, :autofocus => true %>
+  
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <%= f.input :password %>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <%= f.input :password_confirmation %>
 
-  <div><%= f.submit "Sign up" %></div>
+
+  <%= f.button :submit, "Sign up" %>
+</fieldset>
 <% end %>
 
 <%= render "devise/shared/links" %>

@@ -3,7 +3,7 @@
 </div>
 <% @statuses.each do |status|%>
 <div class="status">
-    <b><%= status.name %></b>
+    <b><%= status.user.full_name %></b>
     <p>
         <%= status.comments %></br>
         Amount required:  <%= status.required_amount%>|
