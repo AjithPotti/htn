@@ -5,22 +5,26 @@
   <%= f.input :profile_name %>
   <%= f.input :email, :autofocus => true %>  
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
 
-  <%= f.input :password , :autocomplete => "off", hint: "<i>leave blank if you don't want to change it</i>"%><br />
 
-  <%= f.input :password_confirmation %>
+  
+    <%= f.input :password , :autocomplete => "off", hint: "<i>leave blank if you don't want to change it</i>"%><br />
 
-  <%= f.input :current_password, hint: "<i>we need your current password to confirm your changes</i>"%> <br />
+    <%= f.input :password_confirmation %> 
+
+
+    <%= f.input :current_password, hint: "<i>we need your current password to confirm your changes</i>" %> <br />
+
+
   
 
   <%= f.button :submit, "Update" %>
 
 
+<% end %>
 <h4>Cancel my account</h4>
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
-<% end %>
+
+
 <%= link_to "Back", :back %>

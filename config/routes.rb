@@ -1,8 +1,11 @@
 Htn::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks" } do
+  end
 
   resources :statuses
   root to: 'statuses#index'
+
+match 'signout', to: 'sessions#destroy', as: 'signout'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
